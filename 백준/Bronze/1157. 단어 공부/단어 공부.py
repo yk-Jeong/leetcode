@@ -1,13 +1,11 @@
 S = input().upper()
 
-alphabet = list(set(S))
-test = []
+from collections import Counter
 
-for i in alphabet:
-  cnt = S.count(i)
-  test.append(cnt)
-
-if test.count(max(test)) >= 2:
-  print("?")
+counter = Counter(S)
+test = list(counter.values())
+test = [item for item in test if item == max(test)]
+if len(test) > 1:
+  print('?')
 else:
-  print(alphabet[(test.index(max(test)))])
+  print(max(counter, key=counter.get))
