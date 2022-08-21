@@ -1,15 +1,13 @@
 import sys 
-N = int(sys.stdin.readline())
+input = sys.stdin.readline
 
-test_stack = []
-for _ in range(N):
-  word = sys.stdin.readline().split()
-  command = word[0]
+N = int(input())
 
+# command: push, pop, size, empty, top 
+def stack(command):
   # 1. push 
-  if command == 'push':
-    num = word[1]
-    test_stack.append(num)
+  if command.startswith('push'):
+    test_stack.append(order[1])
   
   # 2. pop
   elif command == 'pop':
@@ -35,3 +33,9 @@ for _ in range(N):
       print(-1)
     else: 
       print(test_stack[-1])
+      
+test_stack = []
+for _ in range(N):
+  order = input().split()
+  command = order[0]
+  stack(command)
