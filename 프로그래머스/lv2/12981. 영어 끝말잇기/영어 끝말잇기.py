@@ -5,3 +5,5 @@ def solution(n, words):
         return [(i%n)+1, (i//n)+1]
     else:
       return [0, 0]
+    
+    return answer 
